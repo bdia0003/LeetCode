@@ -39,10 +39,10 @@ class Solution(object):
         """
         hashmap = {}
         for i in range(len(nums)):
-            hashmap[nums[i]] = i
             complement = target - nums[i]
-            if complement in hashmap and hashmap[complement] != i:
+            if complement in hashmap:
                 return [i,hashmap[complement]]
+            hashmap[nums[i]] = i
 
 
 class TestTwoSum(unittest.TestCase):
@@ -54,6 +54,6 @@ class TestTwoSum(unittest.TestCase):
 
         self.assertEqual(solution.twoSum_3([3,3], 6), [0,1])
 
-        
+
 if __name__ == '__main__':
     unittest.main()
